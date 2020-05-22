@@ -1,22 +1,70 @@
 import argparse
 import sys
 import time
+import re
 us = True
 def makeuserlist():
     print("any name or family name")
     namques = input()
 
-
 def makepasswordlist():
-    print("keywords about user (example : kyle, America, Football, School)")
-    passques = input()
+    print("Leave them empty if you don't know the answers.")
+    print("Name of user?")
+    name = input("> ")
+    if re.match("^[0-9]*$",name):
+      print("Name has to be letters.")
+      name = input("> ")
+    print("Lastname of user?")
+    lastname = input("> ")
+    if re.match("^[0-9]*$",lastname):
+      print("Lastname has to be letters.")
+      lastname = input("> ")
+    print("Year of birth of user?")
+    yearofbirth = input("> ")
+    if re.match("^[A-Z-a-z]*$",yearofbirth) or len(yearofbirth) != 4:
+      print("Year of birth has to be in numbers only and can only be 4 characters.")
+      yearofbirth = input("> ")
+    print("Name of Mom of user?")
+    momname = input("> ")
+    if re.match("^[0-9]*$",momname):
+      print("Momname has to be letters.")
+    print("Year of birth of mom?")
+    momyear = input("> ")
+    if re.match("^[A-Z-a-z]*$",momyear) or len(momyear) != 4:
+      print("Year of birth has to be in numbers only and can only be 4 characters.")
+      momyear = input("> ")
+    print("Dad name of user?")
+    dadname = input("> ")
+    if re.match("^[0-9]*$",dadname):
+      print("Dadname has to be letters.")
+    print("Year of birth of dad?")
+    dadyear = input("> ")
+    if re.match("^[A-Z-a-z]*$",dadyear) or len(dadyear) != 4:
+      print("Year of birth has to be in numbers only and can only be 4 characters.")
+      dadyear = input("> ")
     lisques = []
     one = 0
-    for line in passques:
-        one += 1
-        lisques.append(ques1 + str(one))
+    for x in range(10):
+      one += 1
+      lisques.append(name + str(one))
+    for x in range(10):
+      one += 1
+      lisques.append(lastname + str(one))
+
+    for x in range(10):
+      one += 1
+      lisques.append(momname + str(one))
+    for x in range(10):
+      one += 1
+      lisques.append(dadname + str(one))
+
+    lisques.append(lastname + yearofbirth)
+    lisques.append(momname + momyear)
+    lisques.append(dadname + dadyear)
+    lisques.append(lastname + yearofbirth)
+    lisques.append(name + yearofbirth)
     print(lisques)
-    print(lisques[0])
+
 
 def makepassuserlist():
     print("test")
